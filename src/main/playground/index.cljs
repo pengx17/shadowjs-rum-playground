@@ -6,9 +6,9 @@
 (rum/defc hello-world [data]
   [:div
    [:h1 (:text @app-state)]
-   [:h3 "Edit this and watch it change!" (:foo data)]])
+   [:h3 "Edit this and watch it change!" " " (:foo data)]])
 
-(defn start []
+(defn ^:dev/after-load  start []
   ;; start is called by init and after code reloading finishes
   ;; this is controlled by the :after-load in the config
   (rum/mount (hello-world {:foo "bar"})
